@@ -1,8 +1,13 @@
 # Group TEAM_NUMBER
-Group Name: TEAM_NAME
+Group Name: Group 28
 
 [MVP Link](http://cs196.cs.illinois.edu)
 
-Team Members: STUDENTS_NETIDS
+Team Members: 
+pguan4
+mguerra5
+virajk2
+jade6
+tergelm2
 
-Project Manager: PM_NETID
+Project Manager: sharma90
