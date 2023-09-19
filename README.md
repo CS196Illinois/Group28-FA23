@@ -1,7 +1,7 @@
 # Group TEAM_NUMBER
 Group Name: Group 28
 
-[MVP Link](http://cs196.cs.illinois.edu)
+[MVP Link](https://docs.google.com/document/d/1Rpjg9MYsSX34CbVe_ZV03cEqWFJfi_tpWYKVIW5Fqdg/edit?usp=sharing)
 
 Team Members: 
 pguan4
