@@ -7,7 +7,6 @@ Team Members:
 pguan4
 mguerra5
 virajk2
-jade6
 tergelm2
 
 Project Manager: sharma90
