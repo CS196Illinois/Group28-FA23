@@ -1,6 +1,6 @@
 Plan file. Can also be a PDF or something else. Just make sure to name PLAN with all caps
 
-##Frontend Structure Plan
+## Frontend Structure Plan
 
  1. Strucutre the pages:
     - Login: User and Pass
