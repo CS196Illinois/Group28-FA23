@@ -1,5 +1,12 @@
 Plan file. Can also be a PDF or something else. Just make sure to name PLAN with all caps
 
+## Who's Working on What
+
+ Matthew: 
+ Tergel: 
+ Viraj: 
+ Peter:
+
 ## Frontend Structure Plan
 
  1. Strucutre the pages:
