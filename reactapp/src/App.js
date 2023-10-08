@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Login } from "./LoginPage";
 import { Register } from "./RegisterPage";
+import './DashboardPage';
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login');
