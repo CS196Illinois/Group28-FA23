@@ -11,7 +11,8 @@ export const Register = (props) => {
         console.log(pass);
         console.log(name);
     }
-
+    //changes so far
+    //changed the button text to say register, and made it take you to the login page.
     return (
         <div className="auth-form-container">
             <h2>Register</h2>
@@ -22,7 +23,7 @@ export const Register = (props) => {
             <input value={ email } onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Matthew@gmail.com" id="email" name="email" />
             <label htmlFor="password">Password</label>
             <input value={ pass } onChange={(e) => setPass(e.target.value)} type="password" placeholder="CS124H123!" id="password" name="password" />
-            <button type="Submit">Log In</button>
+            <button onClick={() => props.onFormSwitch('login')} type="Submit">Register</button>
         </form>
         <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
         </div>

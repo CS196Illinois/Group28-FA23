@@ -9,7 +9,8 @@ export const Login = (props) => {
         console.log(email);
         console.log(pass);
     }
-
+    //changes so far
+    //added the onClick function to the login button which takes you to the dashboard page.
     return (
         <div className="auth-form-container">
             <h2>Login</h2>
@@ -18,7 +19,7 @@ export const Login = (props) => {
             <input value={ email } onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Matthew@gmail.com" id="email" name="email" />
             <label htmlFor="password">Password</label>
             <input value={ pass } onChange={(e) => setPass(e.target.value)} type="password" placeholder="CS124H123!" id="password" name="password" />
-            <button type="Submit">Log In</button>
+            <button onClick={() => props.onFormSwitch('dashboard')} type="Submit">Log In</button>
         </form>
         <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here!</button>
         </div>
