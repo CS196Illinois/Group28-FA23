@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import logo from './logo.svg';
 import './App.css';
-import Dashboard from "./DashboardPage"
+import Dashboard from "./DashboardPage";
 import { Login } from "./LoginPage";
 import { Register } from "./RegisterPage";
 import { render } from "@testing-library/react";
+import Tables from "./TablesPage";
 
 function App() {
-  const [currentForm, setCurrentForm] = useState('dashboard');
+  const [currentForm, setCurrentForm] = useState('login');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
@@ -25,7 +26,7 @@ function App() {
       )
     } else {
       return (
-        <Dashboard onFormSwitch={toggleForm} />
+        <Tables onFormSwitch={toggleForm} />
       )
     }
   }
