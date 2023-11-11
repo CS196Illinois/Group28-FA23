@@ -6,6 +6,7 @@ import { getFireStore } from "@firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 
+
 //curent goal: add elements in the database for users, and under users, personal information and vaccine history.
 //then fetch that and populate the table with that data.
 

@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { app } from "./firebase.js";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -7,9 +11,19 @@ export const Register = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
-        console.log(pass);
-        console.log(name);
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, pass)
+            .then((userCredential) => {
+            // Signed up 
+            const user = userCredential.user;
+            props.onFormSwitch('login')
+            // ...
+        })
+        .catch((error) => {
+            console.log(error);
+            // ..
+        });
+        
     }
     //changes so far
     //changed the button text to say register, and made it take you to the login page.
@@ -23,7 +37,7 @@ export const Register = (props) => {
             <input value={ email } onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Matthew@gmail.com" id="email" name="email" />
             <label htmlFor="password">Password</label>
             <input value={ pass } onChange={(e) => setPass(e.target.value)} type="password" placeholder="CS124H123!" id="password" name="password" />
-            <button onClick={() => props.onFormSwitch('login')} type="Submit">Register</button>
+            <button type="Submit">Register</button>
         </form>
         <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
         </div>
