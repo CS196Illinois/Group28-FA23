@@ -6,6 +6,12 @@ import { getFireStore } from "@firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 
+
+//curent goal: add elements in the database for users, and under users, personal information and vaccine history.
+//then fetch that and populate the table with that data.
+
+//hopefully: add some logic that will allow for data to be enetered, and automatically upated?
+
 const firebaseConfig = {
   apiKey: "AIzaSyBEyjYWehoj_eaUFPO8mJv0wRMRyJcE4ws",
   authDomain: "cs124h.firebaseapp.com",

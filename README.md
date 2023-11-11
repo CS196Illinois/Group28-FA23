@@ -6,13 +6,16 @@ Group Name: Group 28
 Team Members: 
 pguan4 😀
 mguerra5 😀
-virajk2 💻
-tergelm2 :grinning:	
+virajk2 😀
+tergelm2 😀
 
 Project Manager: sharma90
 
 DEFAULT LOGIN FOR TESTING:
 
-Email: realTestAccount@gmail.com Password: Password
+Email: realTestAccount@gmail.com
+Password: Password
 
-Note: please don't spam accounts, while I'm fairly certain we won't reach the limit in the FireBase db, it would still be nice for the user list to not be full of random accounts with no data!
+Note: please don't spam accounts, while I'm fairly certain we won't reach the limit in the FireBase db, it would still be nice for the user list to not be full of
+random accounts with no data!
+

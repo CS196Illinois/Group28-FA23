@@ -21,8 +21,7 @@ export const Login = (props) => {
         });
 
     }
-    //changes so far
-    //added the onClick function to the login button which takes you to the dashboard page.
+
     return (
         <div className="auth-form-container">
             <h2>Login</h2>
