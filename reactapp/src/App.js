@@ -9,9 +9,11 @@ import Tables from "./TablesPage";
 
 function App() {
   const [currentForm, setCurrentForm] = useState('login');
+  const [currentUser, setUser] = useState('')
 
-  const toggleForm = (formName) => {
+  const toggleForm = (formName, user) => {
     setCurrentForm(formName);
+    setUser(user);
   }
 // created the function render, which checks the "currentForm" and displays the corresponding page
 // added the Dashboard page as the else and changed the default page to be the dashboard.
@@ -26,7 +28,7 @@ function App() {
       )
     } else {
       return (
-        <Tables onFormSwitch={toggleForm} />
+        <Tables onFormSwitch={toggleForm} user={currentUser} />
       )
     }
   }

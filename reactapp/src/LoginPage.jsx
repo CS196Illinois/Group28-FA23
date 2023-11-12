@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { app } from "./firebase.js";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore"; 
+import { db } from "./firebase.js";
+import { isReactNative } from "@firebase/util";
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -14,12 +17,15 @@ export const Login = (props) => {
             .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            props.onFormSwitch('dashboard');
+            // Save the user's email to Firestore
+            setDoc(doc(db, "users", user.uid), {
+                email: email
+            });
+            props.onFormSwitch('dashboard', user);
         })
         .catch((error) => {
             setError('Invalid Email or Password, please try again.');
         });
-
     }
 
     return (
