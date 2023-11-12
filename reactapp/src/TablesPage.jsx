@@ -13,6 +13,26 @@ export const Tables = (props) => {
     const [expDate3, setExpDate3] = useState('');
     const [vacData3, setVacData3] = useState([]);
 
+    const [email, setEmail] = useState('');
+
+    useEffect(() => {
+      const fetchData = async () => {
+        if (props.user && props.user.uid) {
+          const emailCheck = await getDoc(doc(db, "users", props.user.uid));
+
+              if (emailCheck.exists()) {
+                setEmail(emailCheck.data());
+              } else {
+                console.log("email don't exist");
+              }
+        } else {
+          console.log("props.user or props.user.uid don't exist");
+        }
+      };
+      fetchData();
+    }, [props.user]);
+
+
     useEffect(() => {
       const fetchData = async () => {
           // Check if props.user and props.user.uid are defined
@@ -84,7 +104,8 @@ export const Tables = (props) => {
 
     return (
         <div className="auth-form-container">
-          <h1 style={{ textAlign: 'center', color: 'white' }}>Vaccination Table</h1>
+          
+          <h1 style={{ textAlign: 'center', color: 'white' }}>Welcome, {email.email}</h1>
           <form className="register-form" onSubmit={handleSubmit}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <div style={{ marginRight: '20px' }}>
