@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { doc, setDoc, getDoc } from "firebase/firestore"; 
+import { db } from "./firebase.js";
 
 export const Tables = (props) => {
     const [vacName, setVacName] = useState('');
@@ -11,26 +13,71 @@ export const Tables = (props) => {
     const [expDate3, setExpDate3] = useState('');
     const [vacData3, setVacData3] = useState([]);
 
-    
+    useEffect(() => {
+      const fetchData = async () => {
+          // Check if props.user and props.user.uid are defined
+          if (props.user && props.user.uid) {
+              const docRef = doc(db, "users", props.user.uid, "tables", "tableData");
+              const docSnap = await getDoc(docRef);
+  
+              if (docSnap.exists()) {
+                  setVacData(Array.isArray(docSnap.data().tables.pastDue) ? docSnap.data().tables.pastDue : []);
+                  setVacData2(Array.isArray(docSnap.data().tables.upcoming) ? docSnap.data().tables.upcoming : []);
+                  setVacData3(Array.isArray(docSnap.data().tables.current) ? docSnap.data().tables.current : []);
+              } else {
+                  // doc.data() will be undefined in this case
+                  console.log("No such document!");
+                  setVacData([]);
+                  setVacData2([]);
+                  setVacData3([]);
+              }
+          } else {
+              console.log('props.user or props.user.uid is undefined', props.user);
+          }
+      };
+  
+      fetchData();
+  }, [props.user]); // Depend on props.user instead of props.user.uid
+
     const today = new Date();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const newVac = { vacName, expDate };
+
+        let newVacData = vacData;
+        let newVacData2 = vacData2;
+        let newVacData3 = vacData3;
         
         if (new Date(expDate) < today) {
             // Expiration date is before today, add to the first table
-            setVacData([...vacData, newVac]);
+            newVacData = [...vacData, newVac];
+            setVacData(newVacData);
         } else if (new Date(expDate) <= new Date(today).setDate(today.getDate() + 30)) {
             // Expiration date is between today and 1 month from today, add to the second table
-            setVacData2([...vacData2, newVac]);
+            newVacData2 = ([...vacData2, newVac]);
+            setVacData2(newVacData2);
         } else {
             // Expiration date is more than 1 month from today, add to the third table
-            setVacData3([...vacData3, newVac]);
+            newVacData3 = ([...vacData3, newVac]);
+            setVacData3(newVacData3);
+        }
+        // Check if props.user and props.user.uid are defined
+        if (props.user && props.user.uid) {
+          await setDoc(doc(db, "users", props.user.uid, "tables", "tableData"), {
+            tables: {
+                pastDue: newVacData,
+                upcoming: newVacData2,
+                current: newVacData3
+            }
+          });
+        } else {
+          console.log('props.user or props.user.uid is undefined', props.user);
         }
 
         setVacName('');
         setExpDate('');
+
     }
 
     
