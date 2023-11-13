@@ -6,10 +6,10 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 
-//curent goal: add elements in the database for users, and under users, personal information and vaccine history.
-//then fetch that and populate the table with that data.
-
-//hopefully: add some logic that will allow for data to be enetered, and automatically upated?
+//current goal: add a name field to the users databse, replace the email with the name on the welcome page.
+//also add a method of removing vaccinations that have been added, in case of a mistake or something,
+//could also add a method of dragging them in order?
+//finally make the UI look less ugly.
 
 const firebaseConfig = {
   apiKey: "AIzaSyBEyjYWehoj_eaUFPO8mJv0wRMRyJcE4ws",

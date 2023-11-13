@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { app } from "./firebase.js";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore"; 
+import { db } from "./firebase.js";
+import { isReactNative } from "@firebase/util";
 
 
 
@@ -16,6 +19,10 @@ export const Register = (props) => {
             .then((userCredential) => {
             // Signed up 
             const user = userCredential.user;
+            setDoc(doc(db, "users", user.uid), {
+                email: email,
+                name: name
+            });
             props.onFormSwitch('login')
             // ...
         })

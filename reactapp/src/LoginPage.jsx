@@ -18,9 +18,6 @@ export const Login = (props) => {
             // Signed in 
             const user = userCredential.user;
             // Save the user's email to Firestore
-            setDoc(doc(db, "users", user.uid), {
-                email: email
-            });
             props.onFormSwitch('dashboard', user);
         })
         .catch((error) => {
