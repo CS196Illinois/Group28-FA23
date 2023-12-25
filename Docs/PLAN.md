@@ -1,9 +1,21 @@
 Plan file. Can also be a PDF or something else. Just make sure to name PLAN with all caps
 
+## Who's Working on What
+
+ - Matthew: Sign up page
+ - Tergel: Work with viraj on backend
+ - Viraj: Backend for login page
+ - Peter: Login page
+
 ## Frontend Structure Plan
 
  1. Strucutre the pages:
     - Login: User and Pass
+        - Add a sign up link
+    - Sign Up Page
+        - Enter personal information
+        - Enter past immunizations
+        - Make user and pass
     - Home Page: Upcoming Immunizations (Past due and future), Past Immunizations, Personal Information
     - Upcoming Immunizations Page
         - Table that shows upcoming/future necessary immunizations sorted by due date
@@ -23,4 +35,4 @@ Plan file. Can also be a PDF or something else. Just make sure to name PLAN with
             - Allergies
             - stuff like that.
  
- 2. test
+ 2. Test
